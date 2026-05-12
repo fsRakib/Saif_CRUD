@@ -1,0 +1,45 @@
+syntax= "proto3";
+package zone;
+option go_package ="./proto";
+import "google/protobuf/wrappers.proto";
+service ZoneService {
+    rpc GetZones(Empty) returns (ZoneList);
+    rpc GetZoneByID (ZoneReq) returns (ZoneRes);
+    rpc CreateZone (ZoneData) returns (ZoneRes);
+    rpc UpdateZone (UpdateZoneReq) returns (ZoneRes);
+    rpc DeleteZone (ZoneReq) returns (DeleteRes);
+}
+
+message Empty {}
+
+message ZoneReq {
+    int32 id=1;
+}
+
+message ZoneData {
+    string name=1;
+    string code_name=2;
+    double zone_factor = 3;
+}
+
+message ZoneRes {
+    int32 id=1;
+    string name=2;
+    string code_name=3;
+    double zone_factor = 4;
+}
+
+message ZoneList {
+    repeated ZoneRes zones=1;
+}
+
+message DeleteRes{
+    string message=1;
+}
+
+message UpdateZoneReq{
+    int32 id=1;
+    string name= 2;
+    string code_name= 3;
+    double zone_factor=4;
+}
