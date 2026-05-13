@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/grpc/status"
-	pb "grpc_service/proto"
+	pb "grpc_service/proto" // local protobuf-generated package from gRPC/proto/zone.proto
 	"log"
 	"net"
 )
